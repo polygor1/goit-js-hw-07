@@ -5,6 +5,9 @@ const selected = document
 console.log(`В списке ${selected.length} категории`);
 
 selected.forEach(
-  categories => console.log(`- Категория: ${categories.querySelector('h2').textContent}
+  categories => console.log(
+`- Категория: ${categories.querySelector('h2').textContent}
 - Количество элементов ${categories.querySelectorAll('li').length}`)
 );
+
+
