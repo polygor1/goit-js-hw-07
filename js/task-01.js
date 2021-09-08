@@ -1,12 +1,10 @@
-const selectedById = document.querySelector('ul#categories');
+const selected = document
+  .querySelector('ul#categories')
+  .querySelectorAll('li.item');
 
-const selectedLi = selectedById.querySelectorAll('li.item');
+console.log(`В списке ${selected.length} категории`);
 
-console.log(`В списке ${selectedLi.length} категории`);
-
-selectedLi.forEach(
-  categories => console.log(`
-    - Категория: ${categories.querySelector('h2').textContent}
-    - Количество элементов ${categories.querySelectorAll('li').length}
-  `)
+selected.forEach(
+  categories => console.log(`- Категория: ${categories.querySelector('h2').textContent}
+- Количество элементов ${categories.querySelectorAll('li').length}`)
 );
