@@ -15,9 +15,6 @@ const images = [
 
 const list = document.querySelector("ul#gallery");
 
-images.forEach(function (image) {
-  list.insertAdjacentHTML("beforeend", `<li style="margin: 0 auto"><img src="${image.url}"alt="${image.alt}" height="230" ></li>`);
-});
 list.style.cssText =`
   padding: 0 15px;
   margin: 0 auto;
@@ -28,3 +25,45 @@ list.style.cssText =`
   grid-row-gap: 30px;
   grid-column-gap: 40px;
 ;`
+
+// ------- Repeta way --------
+
+const makeImageGallagy = options => {
+  return options.map(image => {
+    const navItemEl = document.createElement('li');
+    navItemEl.style.margin = "0 auto";
+    const imgEl = document.createElement('img');
+    imgEl.src = image.url;
+    imgEl.alt = image.alt;
+    imgEl.height = 230;
+    navItemEl.appendChild(imgEl);
+    return navItemEl;
+  });
+};
+
+const elements = makeImageGallagy(images);
+
+list.append(...elements);
+  
+// ------ second way ------
+
+images.forEach(function (image) { 
+  const navItemEl = document.createElement('li');
+  navItemEl.style.margin = "0 auto";
+  const imgEl = document.createElement('img');
+  imgEl.src = image.url;
+  imgEl.alt = image.alt;
+  imgEl.height = 230;
+  navItemEl.appendChild(imgEl);
+  list.appendChild(navItemEl);
+});
+
+// ------- short way ---------
+
+images.forEach(function (image) {
+  list.insertAdjacentHTML("beforeend", `<li style="margin: 0 auto">
+    <img src="${image.url}"alt="${image.alt}" height="230"></li>`);
+});
+
+
+
