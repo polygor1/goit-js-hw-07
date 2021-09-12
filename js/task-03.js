@@ -65,5 +65,14 @@ images.forEach(function (image) {
     <img src="${image.url}"alt="${image.alt}" height="230"></li>`);
 });
 
+// ------- AB way ------------
 
+const createGalleryItem = ({ url, alt }) =>
+  `<li><img src="${url}" alt="${alt}" height = "230"></li>`;
 
+const galleryMarkup = images.reduce((acc, item) =>
+  acc + createGalleryItem(item), "");
+const galleryList = document.querySelector("#gallery");
+
+galleryList.insertAdjacentHTML("afterbegin", galleryMarkup);
+// galleryList.setAttribute("style", "list-style-type:none; display: flex;");
