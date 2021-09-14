@@ -13,4 +13,4 @@ ingredients.forEach(function (ingredient) {
   const item = document.createElement("li");
   item.textContent = ingredient;
   list.append(item);
-})
+});
