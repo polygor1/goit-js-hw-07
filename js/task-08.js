@@ -27,7 +27,7 @@ function createBoxes(amount) {
     fragment.appendChild(newDiv);
   }
 
-  boxes.appendChild(fragment);
+  boxes.append(fragment);
 }
 
 function destroyBoxes() {
