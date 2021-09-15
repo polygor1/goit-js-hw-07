@@ -70,9 +70,11 @@ images.forEach(function (image) {
 const createGalleryItem = ({ url, alt }) =>
   `<li><img src="${url}" alt="${alt}" height = "230"></li>`;
 
-const galleryMarkup = images.reduce((acc, item) =>
+const galleryMarkup = images.reduce((acc, item) => 
   acc + createGalleryItem(item), "");
+
+console.log(galleryMarkup);
+
 const galleryList = document.querySelector("#gallery");
 
 galleryList.insertAdjacentHTML("afterbegin", galleryMarkup);
-// galleryList.setAttribute("style", "list-style-type:none; display: flex;");
